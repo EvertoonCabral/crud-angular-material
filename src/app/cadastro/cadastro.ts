@@ -29,6 +29,6 @@ export class Cadastro {
   constructor(private service: ClienteService) {}
 
   salvar() {
-    this.service.salvarClientes(this.cliente);
+    this.service.salvar(this.cliente);
   }
 }

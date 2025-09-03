@@ -9,16 +9,21 @@ export class ClienteService {
 
   constructor() {}
 
-  salvarClientes(cliente: Cliente) {
+  listarClientes(nome: String): Cliente[] {
+    return this.getStorage();
+  }
+
+  salvar(cliente: Cliente) {
     const storage = this.getStorage();
     storage.push(cliente);
+
     localStorage.setItem(ClienteService.REPO_CLIENTE, JSON.stringify(storage));
   }
 
   getStorage(): Cliente[] {
-    const clientesRepository = localStorage.getItem(ClienteService.REPO_CLIENTE);
-    if (clientesRepository) {
-      const clientes: Cliente[] = JSON.parse(clientesRepository);
+    const repositorioClientes = localStorage.getItem(ClienteService.REPO_CLIENTE);
+    if (repositorioClientes) {
+      const clientes: Cliente[] = JSON.parse(repositorioClientes);
       return clientes;
     }
 
