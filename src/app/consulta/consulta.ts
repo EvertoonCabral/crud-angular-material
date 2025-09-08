@@ -57,6 +57,10 @@ export class Consulta implements OnInit {
     this.mostrarMensagem(`O Cliente ${cliente.nome} foi excluido com sucesso.`);
   }
   mostrarMensagem(mensagem: string) {
-    this.snackBar.open(mensagem, 'OK');
+    this.snackBar.open(mensagem, 'OK', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'bottom',
+    });
   }
 }
